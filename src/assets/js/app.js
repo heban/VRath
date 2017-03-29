@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDOM from "react-dom";
 import module from "./module.js";
 
-console.log(module.hello());
+ReactDOM.render(module(), document.getElementById("vrath-scene"));
