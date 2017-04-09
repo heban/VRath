@@ -1,5 +1,6 @@
+import AFrame from "aframe";
 import React from "react";
 import ReactDOM from "react-dom";
-import module from "./module.js";
+import SceneComponent from "./components/scene.component.jsx";
 
-ReactDOM.render(module(), document.getElementById("vrath-scene"));
+ReactDOM.render(<SceneComponent />, document.getElementById("vrath-scene"));
