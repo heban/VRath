@@ -1,4 +1,4 @@
-import AFrame from "aframe";
+import "aframe";
 import React from "react";
 import ReactDOM from "react-dom";
 import SceneComponent from "./components/scene.component.jsx";

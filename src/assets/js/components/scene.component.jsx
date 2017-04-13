@@ -1,12 +1,11 @@
+import { Scene, Entity } from "aframe-react";
 import React from "react";
-import SphereComponent from "./sphere.component.jsx";
-import CameraComponent from "./camera.component.jsx";
 
 const SceneComponent = () => (
-    <a-scene>
-    	<SphereComponent />
-    	<CameraComponent />
-    </a-scene>
+    <Scene>
+        <Entity primitive="a-sphere" radius="100" color="#258bd6" />
+        <Entity primitive="a-camera" position="0 0 500" />
+    </Scene>
 );
 
 export default SceneComponent;

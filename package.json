@@ -7,16 +7,22 @@
     "author": "heban <pawel.ochota@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "dev": "webpack --config webpack.config.js",
-        "production": "webpack -p --config webpack.config.js",
-        "server": "webpack-dev-server --config webpack.config.js --open"
+        "dev": "webpack",
+        "production": "webpack -p",
+        "server": "webpack-dev-server --open",
+        "eslint": "./node_modules/.bin/eslint ./src/assets/js/**"
     },
     "devDependencies": {
         "aframe": "^0.5.0",
+        "aframe-react": "^4.1.0",
         "babel-core": "^6.24.0",
         "babel-loader": "^6.4.1",
         "babel-preset-env": "^1.2.2",
         "babel-preset-react": "^6.23.0",
+        "eslint": "^3.19.0",
+        "eslint-loader": "^1.7.1",
+        "eslint-plugin-react": "^6.10.3",
+        "prop-types": "^15.5.8",
         "react": "^15.4.2",
         "react-dom": "^15.4.2",
         "webpack": "^2.3.2",
