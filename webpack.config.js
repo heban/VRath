@@ -1,11 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
+const PATHS = {
+    entryFile: path.resolve(__dirname, "./src/assets/js/app.js"),
+    bundleName: "bundle.js",
+    outputDir: path.resolve(__dirname, "./build/")
+};
 
 module.exports = {
-    entry: path.resolve(__dirname, "src/assets/js/app.js"),
+    entry: PATHS.entryFile,
     output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "build/js")
+        filename: PATHS.bundleName,
+        path: PATHS.outputDir
     },
     module: {
         rules: [
@@ -35,14 +40,14 @@ module.exports = {
     },
     plugins: [
         // Only for production
-        // new webpack.DefinePlugin({
-        //     "process.env": {
-        //         NODE_ENV: JSON.stringify("production")
-        //     }
-        // }),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
         new webpack.optimize.UglifyJsPlugin()
     ],
     devServer: {
-        publicPath: "/build/js/"
+        publicPath: "/build/"
     }
 };
