@@ -10,12 +10,13 @@ module.exports = {
     entry: PATHS.entryFile,
     output: {
         filename: PATHS.bundleName,
-        path: PATHS.outputDir
+        path: PATHS.outputDir,
+        publicPath: "/build/"
     },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx)$/i,
                 exclude: [/node_modules/],
                 use: [
                     {
@@ -35,17 +36,26 @@ module.exports = {
                         loader: "eslint-loader",
                     }
                 ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                exclude: [/node_modules/],
+                use: [
+                    {
+                        loader: "file-loader?name=images/[name].[ext]"
+                    }
+                ]
             }
         ]
     },
     plugins: [
         // Only for production
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin()
+        // new webpack.DefinePlugin({
+        //     "process.env": {
+        //         NODE_ENV: JSON.stringify("production")
+        //     }
+        // }),
+        // new webpack.optimize.UglifyJsPlugin()
     ],
     devServer: {
         publicPath: "/build/"
