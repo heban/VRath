@@ -9,6 +9,10 @@ const TargetComponent = () => (
         easing: "easeInOutCubic", 
         loop: true,
         to: "-10 2.5 -5"
+    }} events={{
+        click: () => {
+            console.log("Hit!");
+        }
     }} />
 );
 
