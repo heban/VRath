@@ -38,11 +38,20 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif|svg|obj|mtl|dae)$/i,
                 exclude: [/node_modules/],
                 use: [
                     {
                         loader: "file-loader?name=images/[name].[ext]"
+                    }
+                ]
+            },
+            {
+                test: /\.mp3$/i,
+                exclude: [/node_modules/],
+                use: [
+                    {
+                        loader: "file-loader?name=sounds/[name].[ext]"
                     }
                 ]
             }

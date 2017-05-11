@@ -6,6 +6,7 @@ import Arena from "./arena.component.jsx";
 import ArenaLights from "./arena-lights.component.jsx";
 import Camera from "./camera.component.jsx";
 import Target from "./target.component.jsx";
+import Details from "./details.component.jsx";
 
 const SceneComponent = () => (
     <Scene stats>
@@ -13,6 +14,7 @@ const SceneComponent = () => (
         <Arena />
         <Camera />
         <ArenaLights />
+        <Details />
         <Target />
     </Scene>
 );
