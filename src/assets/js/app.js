@@ -1,6 +1,7 @@
 import "aframe";
+import "aframe-redux-component";
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import SceneComponent from "./components/scene.component.jsx";
 
-ReactDOM.render(<SceneComponent />, document.getElementById("vrath-scene"));
+render(<SceneComponent />, document.getElementById("vrath-scene"));

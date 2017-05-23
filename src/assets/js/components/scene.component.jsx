@@ -1,6 +1,6 @@
 import React from "react";
-import { Scene } from "aframe-react";
 import "aframe-animation-component";
+import "../redux/reducer.js";
 import AssetsManager from "./assets-manager.component.jsx";
 import Arena from "./arena.component.jsx";
 import ArenaLights from "./arena-lights.component.jsx";
@@ -9,14 +9,14 @@ import Target from "./target.component.jsx";
 import Details from "./details.component.jsx";
 
 const SceneComponent = () => (
-    <Scene stats>
+    <a-scene redux="reducers: vrathReducer">
         <AssetsManager />
         <Arena />
         <Camera />
         <ArenaLights />
         <Details />
         <Target />
-    </Scene>
+    </a-scene>
 );
 
 export default SceneComponent;

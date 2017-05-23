@@ -6,6 +6,11 @@ const PATHS = {
     outputDir: path.resolve(__dirname, "./build/")
 };
 
+let plugins = [];
+if (process.env.NODE_ENV === "production") {
+    plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
 module.exports = {
     entry: PATHS.entryFile,
     output: {
@@ -24,12 +29,14 @@ module.exports = {
                         options: {
                             presets: [
                                 ["env", {
+                                    "modules": false,
                                     "targets": {
                                         "browsers": ["last 2 versions", "ie >= 11", "Android >= 5"]
                                     }
                                 }],
                                 ["react"]
-                            ] 
+                            ],
+                            plugins: ["transform-object-rest-spread"]
                         }
                     },
                     {
@@ -57,15 +64,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        // Only for production
-        // new webpack.DefinePlugin({
-        //     "process.env": {
-        //         NODE_ENV: JSON.stringify("production")
-        //     }
-        // }),
-        // new webpack.optimize.UglifyJsPlugin()
-    ],
+    plugins: plugins,
     devServer: {
         publicPath: "/build/"
     }
