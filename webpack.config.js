@@ -3,7 +3,8 @@ const webpack = require("webpack");
 const PATHS = {
     entryFile: path.resolve(__dirname, "./src/assets/js/app.js"),
     bundleName: "bundle.js",
-    outputDir: path.resolve(__dirname, "./build/")
+    outputDir: path.resolve(__dirname, "./build/"),
+    publicPath: "/build/"
 };
 
 let plugins = [];
@@ -16,7 +17,7 @@ module.exports = {
     output: {
         filename: PATHS.bundleName,
         path: PATHS.outputDir,
-        publicPath: "/build/"
+        publicPath: PATHS.publicPath
     },
     module: {
         rules: [
@@ -61,11 +62,20 @@ module.exports = {
                         loader: "file-loader?name=sounds/[name].[ext]"
                     }
                 ]
+            },
+            {
+                test: /\.scss$/i,
+                exclude: [/node_modules/],
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
             }
         ]
     },
     plugins: plugins,
     devServer: {
-        publicPath: "/build/"
+        publicPath: PATHS.publicPath
     }
 };

@@ -1,3 +1,4 @@
+import "../sass/app.scss";
 import "aframe";
 import "aframe-redux-component";
 import React from "react";
