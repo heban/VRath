@@ -1,31 +1,46 @@
-AFRAME.registerReducer("vrathReducer", {
-    actions: {
-        SHOW_LOADER: "SHOW_LOADER",
-        HIDE_LOADER: "HIDE_LOADER"
-    },
+import actions from "./enums.js";
 
-    initialState: {
-        loader: true
-    },
-
-    reducer: function (state, action) {
-        state = state || this.initialState;
-        switch (action.type) {
-            case this.actions.SHOW_LOADER: {
-                return {
-                    ...state, 
-                    loader: true
-                };
-            }
-            case this.actions.HIDE_LOADER: {
-                return {
-                    ...state, 
-                    loader: false
-                };
-            }
-            default: {
-                return state;
-            }
+const gameState = (state={
+    loader: true,
+    points: 0,
+    bullets: 0
+}, action) => {
+    switch (action.type) {
+        case actions.SHOW_LOADER: {
+            return {
+                ...state, 
+                loader: true
+            };
+        }
+        case actions.HIDE_LOADER: {
+            return {
+                ...state, 
+                loader: false
+            };
+        }
+        case actions.RESET_POINTS: {
+            return {
+                ...state, 
+                points: 0,
+                bullets: 0
+            };
+        }
+        case actions.ADD_POINTS: {
+            return {
+                ...state, 
+                points: state.points + action.value
+            };
+        }
+        case actions.ADD_BULLETS: {
+            return {
+                ...state, 
+                bullets: state.bullets + 1
+            };
+        }
+        default: {
+            return state;
         }
     }
-});
+};
+
+export default gameState;

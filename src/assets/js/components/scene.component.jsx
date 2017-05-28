@@ -1,22 +1,35 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import "aframe-animation-component";
-import "../redux/reducer.js";
+import { Scene } from "aframe-react";
 import AssetsManager from "./assets-manager.component.jsx";
 import Arena from "./arena.component.jsx";
 import ArenaLights from "./arena-lights.component.jsx";
 import Camera from "./camera.component.jsx";
 import Target from "./target.component.jsx";
 import Details from "./details.component.jsx";
+import LoaderComponent from "./loader.component.jsx";
 
-const SceneComponent = () => (
-    <a-scene redux="reducers: vrathReducer">
-        <AssetsManager />
-        <Arena />
-        <Camera />
-        <ArenaLights />
-        <Details />
-        <Target />
-    </a-scene>
+const SceneComponent = ({ loader }) => (
+    <div className="vrath-scene">
+        <Scene>
+            <AssetsManager />
+            <Arena />
+            <Camera />
+            <ArenaLights />
+            <Details />
+            <Target />
+        </Scene>
+
+        {loader ? <LoaderComponent /> : null}
+    </div>
 );
 
-export default SceneComponent;
+SceneComponent.propTypes = {
+    loader: PropTypes.bool.isRequired
+};
+
+export default connect(({ loader }) => ({
+    loader
+}))(SceneComponent);
