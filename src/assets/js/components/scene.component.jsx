@@ -9,6 +9,7 @@ import ArenaLights from "./arena-lights.component.jsx";
 import Camera from "./camera.component.jsx";
 import Target from "./target.component.jsx";
 import Details from "./details.component.jsx";
+import Scoreboard from "./scoreboard.component.jsx";
 import LoaderComponent from "./loader.component.jsx";
 
 const SceneComponent = ({ loader }) => (
@@ -20,6 +21,7 @@ const SceneComponent = ({ loader }) => (
             <ArenaLights />
             <Details />
             <Target />
+            <Scoreboard />
         </Scene>
 
         {loader ? <LoaderComponent /> : null}

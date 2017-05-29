@@ -24,3 +24,9 @@ export const addPoints = (value) => {
         value
     };
 };
+
+export const addBullets = () => {
+    return {
+        type: actions.ADD_BULLETS
+    };
+};
