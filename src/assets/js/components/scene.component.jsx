@@ -11,6 +11,7 @@ import Target from "./target.component.jsx";
 import Details from "./details.component.jsx";
 import Scoreboard from "./scoreboard.component.jsx";
 import LoaderComponent from "./loader.component.jsx";
+import ResetComponent from "./reset.component.jsx";
 
 const SceneComponent = ({ loader }) => (
     <div className="vrath-scene">
@@ -22,6 +23,7 @@ const SceneComponent = ({ loader }) => (
             <Details />
             <Target />
             <Scoreboard />
+            <ResetComponent />
         </Scene>
 
         {loader ? <LoaderComponent /> : null}

@@ -8,6 +8,8 @@ import floorImg from "../../images/stone.png";
 import crosshairImg from "../../images/crosshair.png";
 import ceilImg from "../../images/wall2.jpg";
 import wallImg from "../../images/wall2.png";
+import armyWomanImg from "../../images/armywoman.jpg";
+import boxImg from "../../images/box3_5.jpg";
 import shotMp3 from "../../sounds/shot.mp3";
 import "../../images/bumpy-olive-green-plastic-texture.jpg";
 import "../../images/Lock.png";
@@ -31,6 +33,9 @@ class AssetsManagerComponent extends React.Component {
                 <img id="crosshairTexture" src={crosshairImg} />
                 <img id="ceilTexture" src={ceilImg} />
                 <img id="wallTexture" src={wallImg} />
+                <img id="armyWomanPoster" src={armyWomanImg} />
+                <img id="armyWomanPoster" src={armyWomanImg} />
+                <img id="boxImg" src={boxImg} />
                 <audio id="shot" src={shotMp3}></audio>
                 <a-asset-item id="healthPackObj" src={healthPackObj}></a-asset-item>
                 <a-asset-item id="healthPackMtl" src={healthPackMtl}></a-asset-item>
