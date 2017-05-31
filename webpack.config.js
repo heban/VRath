@@ -4,7 +4,7 @@ const PATHS = {
     entryFile: path.resolve(__dirname, "./src/assets/js/app.js"),
     bundleName: "bundle.js",
     outputDir: path.resolve(__dirname, "./build/"),
-    publicPath: "/build/"
+    publicPath: "./build/"
 };
 
 let plugins = [];
